@@ -1,0 +1,67 @@
+
+  
+
+
+<!-- <div class="sidebar fixed top-0 bottom-0 bg-blue-500 w-32 overflow-y-auto -z-10">
+    <div>
+        <i class="fa fa-calendar text-white" aria-hidden="true">Timesheet</i>
+        <i class="fa fa-sign-out" aria-hidden="true">Logout</i>
+        <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+        
+    </div> 
+</div> -->
+<app-app-spinner></app-app-spinner>
+<mat-sidenav-container class="h-screen">
+    <mat-sidenav #sidenav mode="side" class="mat-elevation-z8" [opened]="isExpanded">
+        <div class="bg-blue-800 ">
+            <div class="hover:transition-all  lg:w-50 space-y-6 text-white px-4 py-7" x-data="{ open: true }">
+                <div class="flex justify-between items-center">
+                    <!-- <img class="h-14 rounded-lg shadow-xl mx-3 my-2" src="assets/nmg.jpg" /> -->
+                    <!-- <button (click)="toggleSidenav()">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button> -->
+                </div>
+            
+                <nav class="space-y-3 pt-16 ">
+                    <a href="#" class="block py-2 px-4 bg-blue-700 rounded hover:bg-blue-600 space-x-2">
+                        <i class="fa fa-dashboard"></i> <span *ngIf="isExpanded">Dashboard</span> </a>
+                    <a [routerLink]="['/timesheet']"  class="block py-2 px-4 bg-blue-700 rounded hover:bg-blue-600 space-x-2">
+                        <i class="fa fa-calendar-times-o"></i> <span>Timesheet</span> 
+                    </a>
+                    <a href="#" class="block py-2 px-4 bg-blue-700 rounded hover:bg-blue-600 space-x-2">
+                        <i class="fa fa-envelope-open"></i> <span>Enquiry</span> 
+                    </a>
+                    <a  class="block py-2 px-4 bg-blue-700 rounded hover:bg-blue-600 space-x-2">
+                        <i class="fa fa-pencil-square-o"></i> <span>Booking</span> 
+                    </a>
+                    <a [routerLink]="['/employee']" class="block py-2 px-4 bg-blue-700 rounded hover:bg-blue-600 space-x-2">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <span>Employees</span>
+                    </a>
+                    <!-- <a href="#" class="absolute bottom-2 right-2 block py-2 px-4 bg-blue-700 rounded hover:bg-blue-600">Logout</a> -->
+                    <!-- <button type="button" class="space-x-2 text-white absolute bottom-2 right-2 block py-2 px-4 bg-blue-700 rounded hover:bg-blue-600">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i> 
+                        <span>Logout</span>
+                    </button> -->
+                </nav>
+            </div>
+        </div>
+   </mat-sidenav>
+   <mat-sidenav-content>
+    <nav class="bg-blue-800 h-16 px-2 py-2 mat-elevation-z8">
+        <div class="flex justify-between items-center">
+            <button (click)="toggleSidenav()"><img class="h-10 rounded-lg shadow-xl mx-3 my-2" src="assets/nmg.jpg" /></button>
+            
+            <button type="button" class="text-white">
+            <i class="fa fa-sign-out" aria-hidden="true">Logout</i>
+            </button>
+        </div>
+    </nav>
+    <div class="m-1">
+        <router-outlet></router-outlet>
+    </div>
+   </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,84 @@
+
+
+<div class="employee-list p-4">
+
+    <mat-toolbar-row class="flex justify-between align-content: center">
+      <span class="text-2xl font-semibold">Employee List</span>
+      <button class="text-black-800 hover:text-blue-600" (click)="addEmp()"><i class="fa fa-plus-square-o fa-2x pr-8 " aria-hidden="true"></i> </button>
+    </mat-toolbar-row>
+    
+    <table class="mt-6 min-w-full border border-blue-300 mat-elevation-z5" matSort matSortDisableClear matSortActive="FirstName" matSortDirection="desc" mat-table [dataSource]="employeeDataSource">
+      <ng-container matColumnDef="FirstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
+        <td mat-cell *matCellDef="let emp">{{emp.firstName}}</td>
+      </ng-container>
+      <ng-container matColumnDef="LastName">
+        <th mat-header-cell *matHeaderCellDef>Last Name</th>
+        <td mat-cell *matCellDef="let emp">{{emp.lastName}}</td>
+      </ng-container>
+      <ng-container matColumnDef="DOB">
+        <th mat-header-cell *matHeaderCellDef>DOB</th>
+        <td mat-cell *matCellDef="let emp">{{emp.dob}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let emp">{{emp.email}}</td>
+      </ng-container>
+      <ng-container matColumnDef="MobileNumber">
+        <th mat-header-cell *matHeaderCellDef>Mobile Number</th>
+        <td mat-cell *matCellDef="let emp">{{emp.mobileNumber}}</td>
+      </ng-container>
+      <ng-container matColumnDef="Address">
+        <th mat-header-cell *matHeaderCellDef>Address</th>
+        <td mat-cell *matCellDef="let emp">{{emp.address}}</td>
+      </ng-container>
+      <ng-container matColumnDef="Action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let emp" class="space-x-3">
+          <button class=" hover:text-blue-600"  (click)="update(emp)"><i class="fa fa-pencil" aria-hidden="true"></i>
+          </button>
+          <button class=" hover:text-blue-600" (click)="delete(emp.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr  mat-header-row *matHeaderRowDef="displayColumns" class="hover:bg-blue-100"></tr>
+      <tr  mat-row *matRowDef="let emp;columns:displayColumns" class="hover:bg-blue-200"></tr>
+      
+      <!-- <thead class="bg-black-900 divide-y divide-blue-300">
+        <tr>
+          <th class="px-4 py-2 text-left text-sm font-medium text-blue-700 border border-blue-300">ID</th>
+          <th class="px-4 py-2 text-left text-sm font-medium text-blue-700 border border-blue-300">First Name</th>
+          <th class="px-4 py-2 text-left text-sm font-medium text-blue-700 border border-blue-300">Last Name</th>
+          <th class="px-4 py-2 text-left text-sm font-medium text-blue-700 border border-blue-300">Address</th>
+          <th class="px-4 py-2 text-left text-sm font-medium text-blue-700 border border-blue-300">Email</th>
+          <th class="px-4 py-2 text-left text-sm font-medium text-blue-700 border border-blue-300">Mobile Number</th>
+          <th class="px-4 py-2 text-left text-sm font-medium text-blue-700 border border-blue-300">Date of Birth</th>
+          <th class="px-4 py-2 text-left text-sm font-medium text-blue-700 border border-blue-300">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-blue-200">
+        <tr *ngFor="let employee of employees()" class="hover:bg-blue-50">
+          <td class="px-4 py-2 text-sm text-blue-900 border border-blue-300">{{ employee.id }}</td>
+          <td class="px-4 py-2 text-sm text-blue-900 border border-blue-300">{{ employee.firstName }}</td>
+          <td class="px-4 py-2 text-sm text-blue-900 border border-blue-300">{{ employee.lastName }}</td>
+          <td class="px-4 py-2 text-sm text-blue-900 border border-blue-300">{{ employee.address }}</td>
+          <td class="px-4 py-2 text-sm text-blue-900 border border-blue-300">{{ employee.email }}</td>
+          <td class="px-4 py-2 text-sm text-blue-900 border border-blue-300">{{ employee.mobileNumber }}</td>
+          <td class="px-4 py-2 text-sm text-blue-900 border border-blue-300">{{ employee.dob | date: 'shortDate' }}</td>
+          <td class="px-4 py-2 text-sm text-blue-900 border border-blue-300 space-x-3">
+            <button class="text-blue-800 hover:text-blue-600"><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <button class="text-blue-800 hover:text-blue-600"><i class="fa fa-trash-o" aria-hidden="true"></i>
+            </button>
+
+          </td>
+
+        </tr>
+      </tbody> -->
+    </table>
+  </div>
+  
+
+

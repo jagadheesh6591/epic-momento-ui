@@ -1,0 +1,39 @@
+<div>
+  <h2 mat-dialog-title>{{title}}</h2>
+    <mat-dialog-content [formGroup]="empForm">
+      <div class="inputspace">
+      <mat-form-field class="w-60">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" placeholder="" value="data?.firstName">
+      </mat-form-field>
+      <mat-form-field class="w-60">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" placeholder="" value="data?.lastName">
+      </mat-form-field>
+      <mat-form-field class="w-60">
+        <mat-label>DOB</mat-label>
+        <input matInput formControlName="dob" [matDatepicker]="picker" value="data?.dob">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="w-60">
+        <mat-label>Mobile</mat-label>
+        <input matInput formControlName="mobileNumber" placeholder="" value="data?.mobileNumber">
+      </mat-form-field>
+      <mat-form-field class="w-60">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="" value="data?.email">
+      </mat-form-field>
+      <mat-form-field class="w-60">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address" placeholder="" value="data?.address">
+      </mat-form-field>
+    </div>
+    </mat-dialog-content>
+    <mat-dialog-actions class="action">
+      <button mat-raised-button (click)="onClose()" class="bg-blue-200">Cancel</button>
+      <button mat-raised-button (click)="onSave()">Save</button>
+    </mat-dialog-actions>
+   
+</div>

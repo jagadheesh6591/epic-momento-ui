@@ -1,0 +1,20 @@
+:host {
+  display: block;
+}
+
+mat-grid-tile {
+  background: lightblue;
+}
+
+.mat-grid-list {
+  height: auto !important;  /* Automatically adjusts the height */
+  
+}
+
+.timesheet-container {
+}
+
+.date-header {
+  border: solid 1px;
+  padding: 1px;
+}
