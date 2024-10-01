@@ -9,27 +9,29 @@
     </div>
 </div> -->
 
-<div class="h-[32rem] bg-yellow-600">
-    <div class="timesheet-header h-21 w-full bg-blue-400 flex">
-        <div class="employee-container text-base w-1/6 h-24 bg-green-600 text-white flex justify-center items-center">
-            Employee
+<div class="h-[32rem]">
+    <div class="timesheet-header h-28 w-full bg-blue-700 flex ">
+        <div class="bg-white font-bold employee-container text-base w-1/6 h-30 border-2 flex justify-center items-center">
+            Employee 
         </div>
-        <div class="w-5/6">
-            <div class="text-base  h-12 bg-green-600 text-white flex justify-center items-center gap-5">
-                <button class=" hover:text-blue-600"  (click)="loadPreviousWeek()"><i class="fa fa-chevron-left" aria-hidden="true"></i>
+        <div class="w-5/6 ">
+            <div class="text-base  h-10 text-white flex justify-center items-center gap-5">
+                <button class=" hover:text-blue-900"  (click)="loadPreviousWeek()"><i class="fa fa-chevron-left" aria-hidden="true"></i>
                 </button>
-               <span>
+               <span class="font-bold">
                 {{firstDayOfActiveWeek().monthShort}}, {{firstDayOfActiveWeek().year}}
                </span>
-               <button class=" hover:text-blue-600"  (click)="todayDate()">Today
+               <button class=" hover:text-blue-900"  (click)="todayDate()">Today
                </button>
-               <button class=" hover:text-blue-600"  (click)="loadNextWeek()"><i class="fa fa-chevron-right" aria-hidden="true"></i>
+               <button class=" hover:text-blue-900"  (click)="loadNextWeek()"><i class="fa fa-chevron-right" aria-hidden="true"></i>
                </button>
            </div>
-           <div class="text-base h-12 bg-red-500 text-white flex justify-between items-center">
+
+
+           <div class="text-base h-12 bg-blue-600 text-white flex justify-between items-center">
             
              @for (item of currentWeekDays(); track $index; let last = $last) {
-                <div class="[&:not(:last-child)]:border-r-2 border-black text-white w-1/6 flex flex-col h-full items-center" ngClass="''"> 
+                <div class="border-r-2 border-gray-400  text-white w-1/6 flex flex-col h-full items-center hover:bg-blue-800" > 
                    <span>
                     {{item.toFormat('ccc')}}
                    </span>
@@ -39,59 +41,46 @@
                 </div>
              }
            </div>
+           <div class="text-base h-6 bg-blue-500 text-white flex justify-between items-center">
+            
+            @for (item of currentWeekDays(); track $index; let last = $last) {
+               <div class="border-r-2 border-gray-400 text-white w-1/6 flex h-full items-center justify-around" > 
+                  <span>
+                   In
+                  </span>
+                  <span>
+                   Out
+                  </span>
+               </div>
+            }
+          </div>
         </div>
        
     </div>
     <div class="timesheet-body flex">
 
-        <!-- @for (employee of groupedTimesheetsByEmployee() | keyvalue; track $index;) {
-            <div>
-                <div class="w-1/6 h-[26rem] bg-red-600 flex">
-                    <h3>{{ employee.key }}</h3>
-                </div>
-                <div class="w-5/6">
-                    <ul>
-                        @for (timesheet of employee.value; track timesheet.id;) {
-                        <li>
-                            Date: {{ timesheet?.date }} - Check-in: {{ timesheet.checkIn }} - Check-out: {{ timesheet.checkOut }}
-                        </li>
-                        }
-                    </ul>
-                </div>
-            </div>
-        } -->
-
-
-
-
-        <div class="employee-container w-1/6 h-[26rem] bg-red-600 flex">
-            <div>
+        <div class="employee-container w-1/6 h-[25rem]  flex flex-col text-black">
                 @for (employee of timesheetsByEmp() | keyvalue; track $index;) {
-                    <div>
+                    <div  class="h-12 flex justify-center items-center border-b-2 border-r-2 border-l-2">
                         <h3>{{ employee.key }}</h3>
                     </div>
                  }
-            </div>
         </div>
         <div class="w-5/6">
 
             @for (employee of timesheetsByEmp() | keyvalue; track $index;) { 
-                <div class="text-base h-12 bg-red-500 text-white flex justify-between items-center">
-                @for (timesheet of employee.value; track timesheet.id;) { 
-                    <span>
-            
-                        <span class=" border-black text-white"> 
-                           <span>
-                            {{employee.key}}
-                            {{timesheet.date}}
-                            {{ timesheet?.checkIn }}
-                           </span>
-                           <span>
-                             {{timesheet?.checkOut}}
-                           </span>
+                <div class="text-base h-12  text-white flex justify-between items-center">
+                @for (timesheet of employee.value; track timesheet.id;) {
+                    <!-- [&:not(:last-child)]: -->
+                    <div class="border-r-2 border-b-2 text-black w-1/6 flex h-full justify-around items-center"> 
+                        <span>
+                            <button disabled>{{ timesheet?.checkIn }}</button>   
                         </span>
-                     
-                   </span>
+                        <span>
+                            <button disabled>{{ timesheet?.checkOut }}</button>
+                        </span>
+                     </div>
+
                 }
             </div>
             }
